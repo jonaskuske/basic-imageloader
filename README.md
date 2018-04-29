@@ -21,8 +21,8 @@ imageLoader('image1.jpg').then(image =>
 );
 // or with arrays
 imageLoader(['img1.jpg', 'img2.jpg']).then(images => {
-  for (let image of images) {
-    console.log(image.width);
+  for (const image of images) {
+    console.log(`The image is ${image.width} pixels wide.`);
   }
 });
 ```
