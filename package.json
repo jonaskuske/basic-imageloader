@@ -1,0 +1,36 @@
+{
+  "name": "basic-imageloader",
+  "version": "1.0.1",
+  "description": "Simple tool that lets you wait until images are fully loaded",
+  "main": "dist.js",
+  "scripts": {
+    "compile": "babel basic-imageloader.js --out-file dist.js",
+    "prepublish": "npm run compile"
+  },
+  "keywords": [
+    "imageloader",
+    "basic-imageloader",
+    "promises",
+    "images"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonaskuske/basic-imageloader.git"
+  },
+  "author": "Jonas Kuske",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonaskuske/basic-imageloader/issues"
+  },
+  "homepage": "https://github.com/jonaskuske/basic-imageloader#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.50",
+    "@babel/core": "^7.0.0-beta.50",
+    "@babel/preset-env": "^7.0.0-beta.50"
+  }
+}

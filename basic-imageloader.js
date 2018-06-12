@@ -12,12 +12,12 @@ const imageLoader = (images, strict = false) => new Promise((resolve, reject) =>
     : loadAllImages(images, strict).then(resolve, reject);
 });
 
-function loadAllImages(imageList, strict) {
+const loadAllImages = (imageList, strict) => {
   const imageLoadPromises = imageList.map(img => loadImage(img, strict));
   return Promise.all(imageLoadPromises);
 }
 
-function loadImage(img, strict) {
+const loadImage = (img, strict) => {
   return new Promise((resolve, reject) => {
     const el = new Image();
     el.onload = () => resolve(el);
@@ -26,4 +26,8 @@ function loadImage(img, strict) {
   });
 }
 
-export default imageLoader;
+(function (global, indexFn) {
+  typeof exports === 'object' && typeof module !== 'undefined'
+    ? module.exports = indexFn
+    : global.BasicImageloader = indexFn
+})(this, imageLoader)

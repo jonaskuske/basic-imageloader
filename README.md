@@ -1,4 +1,8 @@
-# Image Preloader
+# basic-imageloader
+
+&nbsp;
+> **`basic-imageloader` requires support for `Promise` to run. It does not come with a polyfill, supply your own if you want to support legacy environments!**
+&nbsp;
 
 ### Arguments
   - `{string | Array} url(s) to load`
@@ -8,19 +12,19 @@
 > Takes an image URL or an array of URLs and returns a Promise that resolves when the images are loaded
 
 ```javascript
-imageLoader(['image.jpg', 'image2.jpg']).then(() = > console.log('all images loaded!'));
+BasicImageloader(['image.jpg', 'image2.jpg']).then(() = > console.log('all images loaded!'));
 ```
 
 > The Promise resolves to the loaded image or an array of the loaded images, so you can work with them afterwards (see Strict Mode for caveats)
 
 ```javascript
-imageLoader('image1.jpg').then(image =>
+BasicImageloader('image1.jpg').then(image =>
   image.height > image.width
     ? enablePortaitMode()
     : enableLandscapeMode();
 );
 // or with arrays
-imageLoader(['img1.jpg', 'img2.jpg']).then(images => {
+BasicImageloader(['img1.jpg', 'img2.jpg']).then(images => {
   for (let image of images) {
     console.log(image.width);
   }
@@ -31,7 +35,7 @@ imageLoader(['img1.jpg', 'img2.jpg']).then(images => {
 
 ```javascript
 async function loadAndLogImage(img) {
-  const loadedImage = await imageLoader(img);
+  const loadedImage = await BasicImageloader(img);
   console.log(loadedImage);
 }
 ```
