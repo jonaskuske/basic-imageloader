@@ -5,11 +5,11 @@
  * @returns {Promise.<Image|Array.<Image>>} The loaded Image or an Array containing all loaded Images.
  * Can also contain Errors, if strict mode is off!
  */
-const imageLoader = (images, strict = false) => new Promise((resolve, reject) => {
-  if (typeof images === 'undefined') return resolve();
+const BasicImageloader = (images, strict = false) => new Promise((res, rej) => {
+  if (typeof images === 'undefined') return res();
   typeof images === 'string'
-    ? loadImage(images, strict).then(resolve, reject)
-    : loadAllImages(images, strict).then(resolve, reject);
+    ? loadImage(images, strict).then(res, rej)
+    : loadAllImages(images, strict).then(res, rej);
 });
 
 const loadAllImages = (imageList, strict) => {
@@ -30,4 +30,4 @@ const loadImage = (img, strict) => {
   typeof exports === 'object' && typeof module !== 'undefined'
     ? module.exports = indexFn
     : global.BasicImageloader = indexFn
-})(this, imageLoader)
+})(this, BasicImageloader)
